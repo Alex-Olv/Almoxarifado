@@ -22,7 +22,7 @@ Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
 
 - Alex Oliveira Curvo
 - Silvio Medeiros leite
-- Victor Silva
+- Victor Silva do nascimento reis
 
 
 
