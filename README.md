@@ -1,6 +1,6 @@
 # Sistema de Almoxarifado de Empréstimo de Ferramentas
 
-<img src="http://googleusercontent.com/image_generation_content/1" alt="">
+(http://googleusercontent.com/image_generation_content/1)
 
 Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
 
