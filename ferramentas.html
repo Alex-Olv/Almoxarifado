@@ -19,7 +19,21 @@
         </nav>
     </header>
     <main >
-        
+          <section>
+            <h1 class="titulo_principal">Cadastro de Ferramentas</h1>
+            <form action="/cadastrar" method="POST">
+                <label>Nome da ferramenta:</label><br>
+                <input type="text" name="nome" required><br><br>
+
+                <label>Descrição:</label><br>
+                <input type="text" name="descricao" required><br><br>
+
+                <label>Quantidade:</label><br>
+                <input type="number" name="quantidade" required><br><br>
+
+                <button type="submit" class="botao_principal">Cadastrar</button>
+            </form>
+        </section>
     </main>
     <footer class="rodape">
         <p>© 2025 AlmoXTool. Todos os direitos reservados.</p>
