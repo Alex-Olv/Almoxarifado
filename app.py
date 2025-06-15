@@ -3,7 +3,7 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Conexão com o MySQL
+# Função de conexão com MySQL
 def conectar():
     return mysql.connector.connect(
         host="localhost",
@@ -12,13 +12,17 @@ def conectar():
         database="db_almoxarifado"
     )
 
-# Página do formulário
+# 🔗 Página inicial
 @app.route('/')
+def inicio():
+    return render_template('inicio.html')
+
+# 🔗 Página do formulário de ferramentas
+@app.route('/ferramentas')
 def formulario():
     return render_template('ferramentas.html')
-    
 
-# Recebe os dados do formulário e insere no banco
+# 🔗 Cadastrar ferramentas
 @app.route('/cadastrar', methods=['POST'])
 def cadastrar():
     nome = request.form['nome']
@@ -37,7 +41,7 @@ def cadastrar():
     cursor.close()
     conexao.close()
 
-    return redirect('/')
+    return redirect('/ferramentas')
 
 if __name__ == '__main__':
     app.run(debug=True)
