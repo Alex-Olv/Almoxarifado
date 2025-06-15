@@ -88,7 +88,9 @@ def excluir(id):
     conexao.close()
     return redirect('/ferramentas')
 
-
+@app.route('/emprestimo')
+def emprestimo():
+    return render_template('emprestimo.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
