@@ -16,6 +16,7 @@ def conectar():
 @app.route('/')
 def formulario():
     return render_template('ferramentas.html')
+    
 
 # Recebe os dados do formulário e insere no banco
 @app.route('/cadastrar', methods=['POST'])
@@ -24,11 +25,12 @@ def cadastrar():
     descricao = request.form['descricao']
     quantidade = request.form['quantidade']
     marca = request.form['marca']
+    preco = request.form['preco']
 
     conexao = conectar()
     cursor = conexao.cursor()
-    sql = "INSERT INTO tb_ferramenta (nome, descricao, quantidade, marca) VALUES (%s, %s, %s, %s)"
-    valores = (nome, descricao, quantidade, marca)
+    sql = "INSERT INTO tb_ferramentas (nome, descricao, quantidade, marca, preco) VALUES (%s, %s, %s, %s, %s)"
+    valores = (nome, descricao, quantidade, marca, preco)
     cursor.execute(sql, valores)
     conexao.commit()
 

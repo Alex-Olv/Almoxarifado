@@ -4,7 +4,7 @@ try:
     conexao = pymysql.connect(
         host="localhost",
         user="root",
-        password="",  
+        password="Open@2627",  
         database="db_almoxarifado"
     )
 
