@@ -132,4 +132,5 @@ html,body{
 
 .conteudo_principal_ferramentas{
     padding: 6% 15%;
+    gap: 82px;
 }
