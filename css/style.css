@@ -1,6 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--cor-primaria);
     margin: 0;
     padding: 0;
+}
+
+:root {
+    --cor-primaria: #FAF7F0;
+    --cor-secundaria: #B17457;
+    --cor-tercearia: #4A4947;
+    --cor-hover: #D8D2C2;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: var(--cor-secundaria);
+    padding: 10px 30px;
+}
+
+.titulo_cabecalho{
+    font-size: 40px;
+    margin-left: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2F2F2F;
+}
+
+.menu_cabecalho{
+    margin-right: 5%;
+}
+
+.lista_menu_cabecalho {
+    display: flex;
+    gap: 100px;
+    list-style: none;
+    margin-right: 5%;
+    padding: 0;
+}
+
+.link_menu {
+    text-decoration: none;
+    color: var(--cor-tercearia);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.link_menu:hover {
+    color: var(--cor-hover);
 }
