@@ -47,6 +47,19 @@ body{
 .link_menu:hover {
     color: var(--cor-hover);
 }
+
+.titulo_principal{
+    font-size: 3rem;
+    font-family: 'Krona One', sans-serif;
+    color: var(--cor-tercearia);
+}
+
+.texto_principal{
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-tercearia);
+}
+
 .conteudo_principal{
     padding: 3% 15%;
     display: flex;
