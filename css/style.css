@@ -1,12 +1,20 @@
-body{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-primaria);
+    height: 100%;
 }
 
 :root {
     --cor-primaria: #FAF7F0;
     --cor-secundaria: #B17457;
-    --cor-tercearia: #4A4947;
+    --cor-terciaria: #4A4947;
     --cor-hover: #D8D2C2;
 }
 
@@ -39,7 +47,7 @@ body{
 
 .link_menu {
     text-decoration: none;
-    color: var(--cor-tercearia);
+    color: var(--cor-terciaria);
     font-weight: bold;
     font-size: 30px;
 }
@@ -51,13 +59,13 @@ body{
 .titulo_principal{
     font-size: 3rem;
     font-family: 'Krona One', sans-serif;
-    color: var(--cor-tercearia);
+    color: var(--cor-terciaria);
 }
 
 .texto_principal{
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
-    color: var(--cor-tercearia);
+    color: var(--cor-terciaria);
 }
 
 .conteudo_principal{
@@ -76,7 +84,7 @@ body{
     background-color: var(--cor-secundaria);
     display: flex;
     justify-content: center;
-    border: 2px solid var(--cor-tercearia);
+    border: 2px solid var(--cor-terciaria);
     width: 20%;
     text-align: center;
     border-radius:20px;
@@ -84,14 +92,40 @@ body{
     font-weight: 600;
     padding: 21.5px 0;
     text-decoration: none;
-    color: var(--cor-tercearia);
+    color: var(--cor-terciaria);
     font-family: 'Montserrat', sans-serif;
     margin: 0 auto;
 }
 
 .botao_principal:hover{
-    background-color: var(--cor-tercearia);
+    background-color: var(--cor-terciaria);
     color: var(--cor-hover);
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.rodape {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 10%;
+    background-color: var(--cor-terciaria) ;
+    color: var(--cor-primaria);
+    padding: 20px 15%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.link_rodape {
+    color: var(--cor-primaria) ;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link_rodape:hover {
+    color: var(--cor-hover);
+    text-decoration: underline;
     transition: 0.3s;
 }
