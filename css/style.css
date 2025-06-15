@@ -66,11 +66,32 @@ body{
     align-items: center;
     justify-content: space-between;
     gap: 82px;
-};
+}
 
 .imagem_principal{
     width: 30%;
+}
 
+.botao_principal{
+    background-color: var(--cor-secundaria);
+    display: flex;
+    justify-content: center;
+    border: 2px solid var(--cor-tercearia);
+    width: 20%;
+    text-align: center;
+    border-radius:20px;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--cor-tercearia);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+}
 
-
-};
+.botao_principal:hover{
+    background-color: var(--cor-tercearia);
+    color: var(--cor-hover);
+    cursor: pointer;
+    transition: 0.3s;
+}
