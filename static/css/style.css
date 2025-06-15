@@ -146,3 +146,37 @@ table th, table td {
     text-align: left;
 }
 
+.conteudo_editar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    padding-top: 5%;
+    
+}
+
+.botao_principal_editar{
+    background-color: var(--cor-secundaria);
+    display: flex;
+    justify-content: center;
+    border: 2px solid var(--cor-terciaria);
+    width: 75%;
+    text-align: center;
+    border-radius:20px;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--cor-terciaria);
+    font-family: 'Montserrat', sans-serif;
+    margin: 5% auto;
+}
+
+.botao_principal_editar:hover{
+    background-color: var(--cor-terciaria);
+    color: var(--cor-hover);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
