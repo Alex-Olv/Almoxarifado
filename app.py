@@ -20,7 +20,7 @@ def inicio():
 def formulario():
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT nome, descricao, quantidade, marca, preco FROM tb_ferramentas")
+    cursor.execute("SELECT id, nome, descricao, quantidade, marca, preco FROM tb_ferramentas")
     ferramentas = cursor.fetchall()
     cursor.close()
     conexao.close()
@@ -44,6 +44,51 @@ def cadastrar():
     conexao.close()
 
     return redirect('/ferramentas')
+
+@app.route('/editar/<int:id>', methods=['GET'])
+def editar(id):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM tb_ferramentas WHERE id = %s", (id,))
+    ferramenta = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return render_template('editar.html', ferramenta=ferramenta)
+
+@app.route('/atualizar/<int:id>', methods=['POST'])
+def atualizar(id):
+    nome = request.form['nome']
+    descricao = request.form['descricao']
+    quantidade = request.form['quantidade']
+    marca = request.form['marca']
+    preco = request.form['preco']
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = """
+        UPDATE tb_ferramentas
+        SET nome=%s, descricao=%s, quantidade=%s, marca=%s, preco=%s
+        WHERE id=%s
+    """
+    valores = (nome, descricao, quantidade, marca, preco, id)
+    cursor.execute(sql, valores)
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    return redirect('/ferramentas')
+
+@app.route('/excluir/<int:id>', methods=['POST'])
+def excluir(id):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = "DELETE FROM tb_ferramentas WHERE id = %s"
+    cursor.execute(sql, (id,))
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    return redirect('/ferramentas')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

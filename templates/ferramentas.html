@@ -40,7 +40,8 @@
                 <button type="submit" class="botao_principal">Cadastrar</button>
             </form>
         </div>
-            <div>   
+            <div>
+                   
             <h2 class="titulo_principal">Ferramentas Cadastradas</h2>
             <table class="tabela_ferramentas">
                 <thead>
@@ -50,16 +51,28 @@
                         <th>Quantidade</th>
                         <th>Marca</th>
                         <th>Preço</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for ferramenta in ferramentas %}
                     <tr>
-                        <td>{{ ferramenta[0] }}</td>
                         <td>{{ ferramenta[1] }}</td>
                         <td>{{ ferramenta[2] }}</td>
                         <td>{{ ferramenta[3] }}</td>
-                        <td>R$ {{ "%.2f"|format(ferramenta[4]) }}</td>
+                        <td>{{ ferramenta[4] }}</td>
+                        <td>R$ {{ "%.2f"|format(ferramenta[5]) }}</td>
+
+                         <td>
+                            <form action="/editar/{{ ferramenta[0] }}" method="get" style="display:inline;">
+                            <button type="submit" class="botao_editar">Editar</button>
+                            </form>
+
+                            <form action="/excluir/{{ ferramenta[0] }}" method="post" style="display:inline;">
+                            <button type="submit" class="botao_excluir">Excluir</button>
+                            </form>
+                        </td>    
+
                     </tr>
                     {% endfor %}
                 </tbody>
