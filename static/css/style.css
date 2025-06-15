@@ -130,3 +130,32 @@ html,body{
     transition: 0.3s;
 }
 
+.tabela_ferramentas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela_ferramentas th, .tabela_ferramentas td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabela_ferramentas th {
+    background-color: #f0f0f0;
+}
+
+.formulario_ferramenta input,
+.formulario_ferramenta button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.titulo_secundario {
+    margin-top: 40px;
+}
+
+
+
