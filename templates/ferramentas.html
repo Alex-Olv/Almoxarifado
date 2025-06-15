@@ -19,6 +19,7 @@
         </nav>
     </header>
     <main class="conteudo_principal_ferramentas" >
+        <div>
         <h1 class="titulo_principal">Cadastro de Ferramentas</h1>
         <form action="/cadastrar" method="POST">
                 <label>Nome da ferramenta:</label><br>
@@ -37,7 +38,33 @@
                 <input type="number" name="preco" required><br><br>
 
                 <button type="submit" class="botao_principal">Cadastrar</button>
-            </form>                 
+            </form>
+        </div>
+            <div>   
+            <h2 class="titulo_secundario">Ferramentas Cadastradas</h2>
+            <table class="tabela_ferramentas">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Marca</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ferramenta in ferramentas %}
+                    <tr>
+                        <td>{{ ferramenta[0] }}</td>
+                        <td>{{ ferramenta[1] }}</td>
+                        <td>{{ ferramenta[2] }}</td>
+                        <td>{{ ferramenta[3] }}</td>
+                        <td>R$ {{ "%.2f"|format(ferramenta[4]) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer class="rodape">
         <p>© 2025 AlmoXTool. Todos os direitos reservados.</p>
