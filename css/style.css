@@ -23,7 +23,7 @@ html,body{
     justify-content: space-between; 
     align-items: center;
     background-color: var(--cor-secundaria);
-    padding: 10px 30px;
+    padding: 1.5% 5%;
 }
 
 .titulo_cabecalho{
@@ -69,7 +69,7 @@ html,body{
 }
 
 .conteudo_principal{
-    padding: 3% 15%;
+    padding: 6% 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -94,7 +94,7 @@ html,body{
     text-decoration: none;
     color: var(--cor-terciaria);
     font-family: 'Montserrat', sans-serif;
-    margin: 0 auto;
+    margin: 5% auto;
 }
 
 .botao_principal:hover{
