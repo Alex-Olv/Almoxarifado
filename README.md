@@ -1,6 +1,6 @@
 # Sistema de Almoxarifado de Empréstimo de Ferramentas
 
-![Imagem](https://github.com/Alex-Olv/Almoxarifado/blob/main/assets/unnamed(2).png)
+![Imagem](https://github.com/Alex-Olv/Almoxarifado/blob/main/static/assets/unnamed_2_-removebg-preview.png)
 
 Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
 
