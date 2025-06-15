@@ -131,7 +131,18 @@ html,body{
 }
 
 .conteudo_principal_ferramentas{
-    padding: 6% 15%;
-    gap: 25%;
+    padding: 6% 10%;
+    gap: 20%;
     display: flex;
 }
+
+.cadastro_ferramentas{
+    width: 40%;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
