@@ -11,22 +11,73 @@
         <h1 class="titulo_cabecalho">AlmoXTool</h1>
         <nav class="menu_cabecalho">
             <ul class="lista_menu_cabecalho">
-                <li><a class="link_menu" href="http://127.0.0.1:5000">Início</a></li>
+                <li><a class="link_menu" href="">Início</a></li>
                 <li><a class="link_menu" href="http://127.0.0.1:5000/ferramentas">Ferramentas</a></li>
                 <li><a class="link_menu" href="http://127.0.0.1:5000/emprestimo">Empréstimos</a></li>
                 <li><a class="link_menu" href="#">Devoluções</a></li>
             </ul>
         </nav>
     </header>
-    <main class="">
-        <p class="introducao_emprestimos"> 
-            <h1>BEM-VINDO</h1><br> <h4> Está e a pagina de emprestimos de Ferramentas do AlmoxTool, <br>
-                aqui voce pode requisitar as Ferramentas que estão no estoque.</h4> 
-            
+    
+    <main>
+        <h2>Cadastrar Empréstimo</h2>
+        <form action="/cadastrar_emprestimo" method="POST">
+            <label>Data do Empréstimo:</label><br>
+            <input type="date" name="dt_emprestimo" required><br><br>
+                
+            <label>Data de Entrega:</label><br>
+            <input type="date" name="dt_entrega" required><br><br>
 
-        </p>
-       
+            <label>Responsável:</label><br>
+            <input type="text" name="nome_responsavel" required><br><br>
+
+            <label>Obra:</label><br>
+            <input type="text" name="nome_obra" required><br><br>
+
+            <label>Almoxarife:</label><br>
+            <input type="text" name="nome_almoxarife" required><br><br>
+
+            <label>Ferramenta:</label><br>
+            <select name="id_ferramenta" required>
+                <option value="">Selecione a ferramenta</option>
+                {% for ferramenta in ferramentas %}
+                    <option value="{{ ferramenta[0] }}">{{ ferramenta[1] }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="submit" class="botao_principal">Cadastrar</button>
+        </form>
+
+        <h2>Empréstimos Realizados</h2>
+
+        <table class="tabela_emprestimos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data Empréstimo</th>
+                    <th>Data Entrega</th>
+                    <th>Responsável</th>
+                    <th>Obra</th>
+                    <th>Almoxarife</th>
+                    <th>Ferramenta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emprestimo in emprestimos %}
+                <tr>
+                    <td>{{ emprestimo[0] }}</td>
+                    <td>{{ emprestimo[1] }}</td>
+                    <td>{{ emprestimo[2] }}</td>
+                    <td>{{ emprestimo[3] }}</td>
+                    <td>{{ emprestimo[4] }}</td>
+                    <td>{{ emprestimo[5] }}</td>
+                    <td>{{ emprestimo[6] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </main>
+
     <footer class="rodape">
         <p>© 2025 AlmoXTool. Todos os direitos reservados.</p>
         <p>Desenvolvido por: 

@@ -90,7 +90,53 @@ def excluir(id):
 
 @app.route('/emprestimo')
 def emprestimo():
-    return render_template('emprestimo.html')
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    # Buscar ferramentas
+    cursor.execute("SELECT id, nome FROM tb_ferramentas")
+    ferramentas = cursor.fetchall()
+
+    # Buscar empréstimos
+    cursor.execute("""
+        SELECT e.id, e.dt_emprestimo, e.dt_entrega, e.nome_responsavel, 
+               e.nome_obra, e.nome_almoxarife, f.nome 
+        FROM tb_emprestimo e
+        JOIN tb_ferramentas f ON e.id_ferramenta = f.id
+    """)
+    emprestimos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return render_template('emprestimo.html', ferramentas=ferramentas, emprestimos=emprestimos)
+
+@app.route('/cadastrar_emprestimo', methods=['POST'])
+def cadastrar_emprestimo():
+    dt_emprestimo = request.form['dt_emprestimo']
+    dt_entrega = request.form['dt_entrega']
+    nome_responsavel = request.form['nome_responsavel']
+    nome_obra = request.form['nome_obra']
+    nome_almoxarife = request.form['nome_almoxarife']
+    id_ferramenta = request.form['id_ferramenta']
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute("""
+        INSERT INTO tb_emprestimo 
+        (dt_emprestimo, dt_entrega, nome_responsavel, nome_obra, nome_almoxarife, id_ferramenta)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """, (dt_emprestimo, dt_entrega, nome_responsavel, nome_obra, nome_almoxarife, id_ferramenta))
+
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    return redirect('/emprestimo')
+
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
