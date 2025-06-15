@@ -47,3 +47,17 @@ body{
 .link_menu:hover {
     color: var(--cor-hover);
 }
+.conteudo_principal{
+    padding: 3% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px;
+};
+
+.imagem_principal{
+    width: 30%;
+    
+
+
+};
