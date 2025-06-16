@@ -145,11 +145,18 @@ def cadastrar_emprestimo():
 def editar_emprestimo(id):
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM tb_emprestimo WHERE id = %s", (id,))
-    emprestimos = cursor.fetchone()
+    cursor.execute("""
+        SELECT e.id, e.dt_emprestimo, e.dt_entrega, e.nome_responsavel, 
+               e.nome_obra, e.nome_almoxarife, f.nome, e.id_ferramenta
+        FROM tb_emprestimo e
+        JOIN tb_ferramentas f ON e.id_ferramenta = f.id
+        WHERE e.id = %s
+    """, (id,))
+    emprestimo = cursor.fetchone()
     cursor.close()
     conexao.close()
-    return render_template('editar_emprestimo.html', emprestimo=emprestimos)
+    return render_template('editar_emprestimo.html', emprestimo=emprestimo)
+
 
 @app.route('/atualizar/<int:id>', methods=['POST'])
 def atualizar_emprestimo(id):
