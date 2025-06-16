@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Empréstimo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="titulo_cabecalho">Editar Empréstimo</h1>
+        <nav>
+            <a href="/">Início</a> |
+            <a href="/emprestimo">Voltar para Empréstimos</a>
+        </nav>
+    </header>
+
+    <main class="conteudo_principal">
+        <form action="/atualizar/{{ emprestimo[0] }}" method="POST">
+            <label>Data do Empréstimo:</label><br>
+            <input type="date" name="dt_emprestimo" value="{{ emprestimo[1] }}" required><br><br>
+
+            <label>Data de Entrega:</label><br>
+            <input type="date" name="dt_entrega" value="{{ emprestimo[2] }}" required><br><br>
+
+            <label>Responsável:</label><br>
+            <input type="text" name="nome_responsavel" value="{{ emprestimo[3] }}" required><br><br>
+
+            <label>Obra:</label><br>
+            <input type="text" name="nome_obra" value="{{ emprestimo[4] }}" required><br><br>
+
+            <label>Almoxarife:</label><br>
+            <input type="text" name="nome_almoxarife" value="{{ emprestimo[5] }}" required><br><br>
+
+            <label>ID da Ferramenta:</label><br>
+            <input type="number" name="id_ferramenta" value="{{ emprestimo[6] }}" required><br><br>
+
+            <button type="submit" class="botao_principal">Atualizar Empréstimo</button>
+        </form>
+    </main>
+
+    <footer class="rodape">
+        <p>© 2025 AlmoXTool. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
