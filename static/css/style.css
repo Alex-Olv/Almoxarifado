@@ -26,9 +26,15 @@ html,body{
     padding: 1.5% 5%;
 }
 
-.titulo_cabecalho{
-    font-size: 40px;
+.titulo_cabecalho_apresentacao{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
     margin-left: 10%;
+}
+
+.titulo_cabecalho{
+    font-size: 3rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #2F2F2F;
 }
@@ -85,7 +91,7 @@ html,body{
     display: flex;
     justify-content: center;
     border: 2px solid var(--cor-terciaria);
-    width: 20%;
+    width: 13rem;
     text-align: center;
     border-radius:20px;
     font-size: 2rem;
