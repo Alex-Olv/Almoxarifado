@@ -7,7 +7,7 @@ def conectar():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="",
+        password="Open@2627",
         database="db_almoxarifado"
     )
 
@@ -129,14 +129,70 @@ def cadastrar_emprestimo():
         VALUES (%s, %s, %s, %s, %s, %s)
     """, (dt_emprestimo, dt_entrega, nome_responsavel, nome_obra, nome_almoxarife, id_ferramenta))
 
+    cursor.execute("""
+        UPDATE tb_ferramentas
+        SET quantidade = quantidade - 1
+        WHERE id = %s AND quantidade > 0
+    """, (id_ferramenta,))
+
     conexao.commit()
     cursor.close()
     conexao.close()
 
     return redirect('/emprestimo')
 
+@app.route('/editar_emprestimo/<int:id>', methods=['GET'])
+def editar_emprestimo(id):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM tb_emprestimo WHERE id = %s", (id,))
+    emprestimos = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return render_template('editar_emprestimo.html', emprestimo=emprestimos)
 
-    
+@app.route('/atualizar/<int:id>', methods=['POST'])
+def atualizar_emprestimo(id):
+    data_emprestimo = request.form['dt_emprestimo']
+    data_entrega = request.form['dt_entrega']
+    responsavel = request.form['nome_responsavel']
+    obra = request.form['nome_obra']
+    almoxarife = request.form['nome_almoxarife']
+    ferramenta = request.form['id_ferramenta']
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = """
+        UPDATE tb_emprestimo
+        SET dt_emprestimo=%s, dt_entrega=%s, nome_responsavel=%s, nome_obra=%s, nome_almoxarife=%s, id_ferramenta=%s
+        WHERE id=%s
+    """
+    valores = (data_emprestimo, data_entrega, responsavel, obra, almoxarife, ferramenta, id)
+    cursor.execute(sql, valores)
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    return redirect('/emprestimo')    
+
+@app.route('/excluir_emprestimo/<int:id>', methods=['POST'])
+def excluir_emprestimo(id):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT id_ferramenta FROM tb_emprestimo WHERE id = %s", (id,))
+    resultado = cursor.fetchone()
+    if resultado:
+        id_ferramenta = resultado[0]
+        cursor.execute("""
+            UPDATE tb_ferramentas
+            SET quantidade = quantidade + 1
+            WHERE id = %s
+        """, (id_ferramenta,))
+    sql = "DELETE FROM tb_emprestimo WHERE id = %s"
+    cursor.execute(sql, (id,))
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    return redirect('/emprestimo')
 
 if __name__ == '__main__':
     app.run(debug=True)

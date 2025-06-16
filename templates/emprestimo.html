@@ -76,6 +76,15 @@
                     <td>{{ emprestimo[5] }}</td>
                     <td>{{ emprestimo[6] }}</td>
                 </tr>
+                <td>
+                            <form action="/editar/{{ emprestimo[0] }}" method="get" style="display:inline;">
+                            <button type="submit" class="botao_editar">Editar</button>
+                            </form>
+
+                            <form action="/excluir/{{ emprestimo[0] }}" method="post" style="display:inline;">
+                            <button type="submit" class="botao_excluir">Excluir</button>
+                            </form>
+                        </td>    
                 {% endfor %}
             </tbody>
         </table>
