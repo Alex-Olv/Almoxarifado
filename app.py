@@ -81,8 +81,19 @@ def atualizar(id):
 def excluir(id):
     conexao = conectar()
     cursor = conexao.cursor()
-    sql = "DELETE FROM tb_ferramentas WHERE id = %s"
-    cursor.execute(sql, (id,))
+
+    # Verifica se a ferramenta está associada a algum empréstimo
+    cursor.execute("SELECT COUNT(*) FROM tb_emprestimo WHERE id_ferramenta = %s", (id,))
+    resultado = cursor.fetchone()[0]
+
+    if resultado > 0:
+        # Fechar conexão e mostrar mensagem de erro
+        cursor.close()
+        conexao.close()
+        return render_template('erro.html')  # Você precisa criar esse arquivo
+
+    # Se não estiver em uso, exclui normalmente
+    cursor.execute("DELETE FROM tb_ferramentas WHERE id = %s", (id,))
     conexao.commit()
     cursor.close()
     conexao.close()
@@ -158,7 +169,7 @@ def editar_emprestimo(id):
     return render_template('editar_emprestimo.html', emprestimo=emprestimo)
 
 
-@app.route('/atualizar/<int:id>', methods=['POST'])
+@app.route('/atualizar_emprestimo/<int:id>', methods=['POST'])
 def atualizar_emprestimo(id):
     data_emprestimo = request.form['dt_emprestimo']
     data_entrega = request.form['dt_entrega']

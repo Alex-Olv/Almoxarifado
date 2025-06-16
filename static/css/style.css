@@ -186,3 +186,6 @@ table th, table td {
     transition: 0.3s;
 }
 
+.tabela_emprestimo_conteiner{
+    width: 80%;
+}

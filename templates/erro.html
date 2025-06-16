@@ -1,0 +1,33 @@
+<!-- templates/erro.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Erro ao excluir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffecec;
+            color: #d8000c;
+            padding: 40px;
+        }
+        .erro-container {
+            background-color: #fff0f0;
+            padding: 20px;
+            border: 2px solid #d8000c;
+            border-radius: 10px;
+        }
+        a {
+            color: #00529b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="erro-container">
+        <h1>⚠ Erro ao excluir</h1>
+        <p>Não é possível excluir esta ferramenta pois ela está vinculada em um empréstimo ativo e <strong>não pode ser excluída</strong>.</p>
+        <p><a href="/ferramentas">← Voltar para Ferramentas</a></p>
+    </div>
+</body>
+</html>
