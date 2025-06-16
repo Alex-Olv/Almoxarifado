@@ -5,6 +5,13 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
+    <header class="cabecalho">
+        <h1 class="titulo_cabecalho">Editar Ferramentas</h1>
+        <nav>
+            <a class="link_menu" href="{{ url_for('emprestimo') }}">Voltar</a>
+        </nav>
+    </header>
+
         <main class="conteudo_editar">
             <h1 class="titulo_principal">Editar Ferramenta</h1>
             <form action="/atualizar/{{ ferramenta[0] }}" method="POST">

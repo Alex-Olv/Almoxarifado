@@ -8,13 +8,14 @@
 </head>
 <body>
     <header class="cabecalho">
-        <h1>Editar Empréstimo</h1>
+        <h1 class="titulo_cabecalho">Editar Ferramentas</h1>
         <nav>
-            <a href="{{ url_for('emprestimo') }}">Voltar</a>
+            <a class="link_menu" href="{{ url_for('emprestimo') }}">Voltar</a>
         </nav>
     </header>
 
-    <main>
+    <main class="conteudo_editar">
+        <h1 class="titulo_principal">Editar Ferramenta</h1>
         <form action="{{ url_for('atualizar_emprestimo', id=emprestimo[0]) }}" method="POST">
 
             <label>Data do Empréstimo:</label><br />
