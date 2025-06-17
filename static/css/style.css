@@ -176,7 +176,7 @@ table th, table td {
     text-decoration: none;
     color: var(--cor-terciaria);
     font-family: 'Montserrat', sans-serif;
-    margin: 5% auto;
+    margin: 20% auto;
 }
 
 .botao_principal_editar:hover{
