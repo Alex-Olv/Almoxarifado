@@ -189,3 +189,34 @@ table th, table td {
 .tabela_emprestimo_conteiner{
     width: 80%;
 }
+
+.subtitulo_cabecalho {
+    font-size: 1em;
+    color: black;
+    margin: 0;
+}
+
+.bloco_titulo {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    margin-left: 15px; }
+
+input{
+    all: unset;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.088);
+    transition: border .3s ease-in-out;
+} 
+
+input:focus{
+    border-color: #32CD32;
+
+}
+
+input::placeholder{
+    font-size: .9rem;
+
+}
