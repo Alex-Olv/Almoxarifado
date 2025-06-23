@@ -22,8 +22,7 @@ Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
 - Interface web responsiva e amigável (issues [#1](https://github.com/Alex-Olv/Almoxarifado/issues/1))
 - Busca e filtros de itens (issues [#2](https://github.com/Alex-Olv/Almoxarifado/issues/2))
 - Implementação de teste unitários para aplicação (issues [#3](https://github.com/Alex-Olv/Almoxarifado/issues/3))
-
--Usar o Docker na aplicação (issues [#4](https://github.com/Alex-Olv/Almoxarifado/issues/4))
+- Usar o Docker na aplicação (issues [#4](https://github.com/Alex-Olv/Almoxarifado/issues/4))
 
 ## Tecnologias utilizadas
 
