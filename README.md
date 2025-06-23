@@ -21,7 +21,8 @@ Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
 - Relatórios de uso e movimentação
 - Interface web responsiva e amigável (issues [#1](https://github.com/Alex-Olv/Almoxarifado/issues/1))
 - Busca e filtros de itens (issues [#2](https://github.com/Alex-Olv/Almoxarifado/issues/2))
-- Implementação de teste unitários para aplicação (issues [#3](https://github.com/Alex-Olv/Almoxarifado/issues/2))
+- Implementação de teste unitários para aplicação (issues [#3](https://github.com/Alex-Olv/Almoxarifado/issues/3))
+-Usar o Docker na aplicação (issues [#4](https://github.com/Alex-Olv/Almoxarifado/issues/4))
 
 ## Tecnologias utilizadas
 
@@ -36,21 +37,40 @@ Bem-vindo ao projeto de controle de empréstimo de ferramentas para obras!
    git clone https://github.com/Alex-Olv/Almoxarifado.git
    cd Almoxarifado
    ```
+
 2. Crie e ative um ambiente virtual:
    ```bash
    python -m venv venv
    source venv/bin/activate  # Linux/Mac
    venv\Scripts\activate     # Windows
    ```
+
 3. Instale as dependências:
    ```bash
    pip install -r requirements.txt
    ```
-4. Configure o banco de dados MySQL conforme o arquivo de configuração do projeto.
-5. Execute a aplicação:
+
+4. **Suba um container MySQL usando Docker:**
+   ```bash
+   docker run --name almoxarifado-mysql -e MYSQL_ROOT_PASSWORD=senha_root -e MYSQL_DATABASE=almoxarifado -e MYSQL_USER=usuario -e MYSQL_PASSWORD=senha_usuario -p 3306:3306 -d mysql:8.0
+   ```
+   - Altere `senha_root`, `usuario` e `senha_usuario` conforme desejar.
+   - O banco será acessível em `localhost:3306`.
+
+5. **Configure as variáveis de ambiente do seu projeto** (exemplo para Flask):
+   ```
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_USER=usuario
+   DB_PASSWORD=senha_usuario
+   DB_NAME=almoxarifado
+   ```
+
+6. **Execute as migrações ou crie as tabelas** conforme a necessidade do seu projeto.
+
+7. Execute a aplicação:
    ```bash
    flask run
-   ```
 
 ## Como contribuir
 
